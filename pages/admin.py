@@ -51,7 +51,7 @@ col3.metric("Resolved", len(df[df["status"] == "Resolved"]))
 st.markdown("---")
 
 # --- EMERGENCY DISTRESS RADAR ---
-distress_df = df[df["urgency"] == "CRITICAL"] if "urgency" in df.columns else pd.DataFrame()
+distress_df = df[(df["urgency"] == "CRITICAL") & (df["status"] != "Resolved")] if "urgency" in df.columns else pd.DataFrame()
 if not distress_df.empty:
     st.error("🚨 **CRITICAL DISTRESS ACTIVE** 🚨 Requires Immediate Intervention")
     for _, row in distress_df.iterrows():
