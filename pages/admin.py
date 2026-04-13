@@ -10,7 +10,7 @@ load_css()
 st.title("🛠️ Admin Dashboard")
 
 # Basic Password Authentication
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 if not ADMIN_PASSWORD:
     try:
         ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "admin123")  # fallback for testing
