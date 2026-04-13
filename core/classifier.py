@@ -8,7 +8,7 @@ import streamlit as st
 
 # Setup Gemini
 # NEVER PASTE YOUR RAW API KEY HERE - GitHub will automatically detect and ban it!
-api_key = os.environ.get("GEMINI_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
 
 if not api_key:
     try: api_key = st.secrets.get("GEMINI_API_KEY")
